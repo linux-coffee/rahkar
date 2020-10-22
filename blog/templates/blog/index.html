@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load jformat %}
+{% block content %}
+<div class="row">
+    <div class="col-sm-8">
+        {% for news in all_news %}
+        <div class="card mb-3" id="mycard">
+                <div class="row no-gutters">
+                  <div class="col-md-2">
+                    <a href="{{ news.get_absolute_url }}"><img src="{{ news.image.url }}" class="img-thumbnail" alt="..."></a>
+                  </div>
+                  <div class="col-md-10">
+                    <div class="card-body">
+                      <h5 class="card-title"><a  class="myfonttitle" href="{{ news.get_absolute_url }}">{{ news.title }}</a></h5>
+                      <p class="card-text myfontdes">{{ news.description|truncatechars:150 }}</p>
+                      <p class="card-text"><small class="myfontnumbers">{{ news.created|jformat:"%Y/%m/%d %H:%M"  }}</small></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+        </div>
+    <div class="col-sm-4">
+      <div>
+        <form action="{% url 'blog:search' %}" method="GET" >
+          <div class="input-group">
+          <input id="" name="q" class="form-control myfontdes" type="text" placeholder="عنوان مورد نظر خود را وارد نمایید..." name="search">
+          <div class="input-group-btn">
+          <input type="submit" class="searchbtn form-control" value="جستجو"></button>
+          </div>
+        </div>
+        </form>
+      </div>
+      <div>
+        <img class="bannerleftindex" src="{% static '/img/1584677412-99.jpg' %}" alt="سال جهش تولید">
+        <br>
+        <img class="bannerleftindex" src="{% static '/img/9904-ACECR-40th.jpg' %}" alt="چهل ساد حودباوری با جهاددانشگاهی">
+      </div>
+      <div class="card mb-3">
+        <div>
+          <p class="mefontnew" ">ثبت نام دوره های آموزشی</p>
+        </div>
+        <hr class="myhr">
+        <ul>
+          <a href="{% url 'startup:courses_index' %}"><img class="bannerregister" src="{% static '/img/register.png' %}" alt="ثبت نام دوره ها"></a>
+        </ul> 
+      </div>
+      <div class="card mb-3">
+        <div>
+          <p class="mefontnew">استارتاپ های فعال مرکز </p>
+        </div>
+        <hr class="myhr">
+          {% for startup in all_startup %}
+              <div class="row no-gutters" id="startupindex">
+                  <div class="col-md-4">
+                      <a href="{% url 'startup:startup_index' %}"><img src="{{ startup.image.url }}" class="img-thumbnail" alt="..."></a>
+                  </div>
+                  <div class="col-md-8">
+                      <div class="card-body">
+                          <small class="card-title"><a href="{% url 'startup:startup_index' %}">{{ startup.title }}</a></small>
+                          
+                      </div>
+                  </div>
+              </div>
+              {% endfor %}
+          </div>
+          
+        <div class="card mb-3">
+          <div>
+            <p class="mefontnew">نوشته های تازه</p>
+          </div>
+          <hr class="myhr">
+          <ul>
+            {% for news in all_news %}
+            <li><a class="myfontdes" href="{{ news.get_absolute_url }}">{{ news.title }}</a></li>
+            {% endfor %}
+          </ul> 
+        </div>
+    </div>
+</div>
+{% endblock %}

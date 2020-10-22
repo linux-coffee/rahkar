@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %} آرشیو اخبار {% endblock %}
+{% block content %}
+<div class="row">
+    <div class="col-sm-12">
+        {% for news in all_news %}
+        <div class="card mb-3">
+                <div class="row no-gutters">
+                  <div class="col-md-2">
+                    <a href="{{ news.get_absolute_url }}"><img src="{{ news.image.url }}" class="img-thumbnail" alt="..."></a>
+                  </div>
+                  <div class="col-md-10">
+                    <div class="card-body">
+                      <h5 class="card-title"><a  class="myfonttitle" href="{{ news.get_absolute_url }}">{{ news.title }}</a></h5>
+                      <p class="card-text myfontdes">{{ news.description|truncatechars:150 }}</p>
+                      <p class="card-text"><small class="myfontnumbers">{{ news.created|date:"d F Y" }}</small></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+        </div>
+</div>
+{% endblock %}

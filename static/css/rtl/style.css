@@ -1,0 +1,108 @@
+body{
+    background-color: #e7e7de;
+}
+.thnews{
+    height:1px;
+    width:50%;
+    text-align: center;
+    color:gray;
+}
+.newsimage{
+    text-align: center;
+    width: 100%;
+}
+@font-face {
+    font-family: 'yekanweb';
+    src: local('Yekanweb'),
+         url('/static/fonts/yekanweb.ttf') format("truetype");
+  }
+@font-face {
+    font-family: 'yekannumbers';
+    src: local('Yekannumbers'),
+         url('/static/fonts/yekannumbers.ttf') format("truetype");
+}
+
+.myfonttitle{
+    color: #0f3057;
+    font-family: yekanweb;
+    font-size: 17px;
+    font-weight: bold;
+}
+.myfontnumbers{
+    font-family: yekannumbers;
+    font-size: 11px;
+    color: #b9bec1;
+}
+.myfontdes{
+    color: #00587a;
+    font-family: yekanweb;
+    font-size: 13px;
+
+}
+.myfonttitleheader{
+    font-family: yekanweb;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+}
+
+.mynavbar{
+    background-color:#008891;
+}
+
+.mynavbar a{
+    color: #e7e7de !important;
+    font-family: yekanweb;
+    font-size: 15px;
+
+}
+.myfooter{
+    background-color:#008891 !important;
+    margin-bottom: auto;
+}
+.hrfooter{
+    border-width: 4px;
+    background-color: #00587a;
+    margin-top: auto;
+    
+}
+.myfootertitle{
+    color: #0f3057;
+    font-family: yekanweb !important;
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 15px;
+
+}
+.footerfont{
+    font-family: yekanweb !important;
+    font-size: 13px;
+    color: #e7e7de;
+}
+.copyrightdiv{
+    margin-top: 0px !important;
+    background-color: #00587a;
+    font-family: yekanweb !important;
+    font-size:12px ;
+    height: 100%;
+    width: 100%;
+    color: #e7e7de;
+    text-align: center;
+}
+.myjumbotron{
+    background-color: white;
+}
+
+#imagenewsdetail{
+    border: 12px;
+
+}
+
+#startupindex{
+    padding: initial;
+    
+}
+#startupindex a{
+    font-size: 14px;
+    font-family: yekanweb;
+}

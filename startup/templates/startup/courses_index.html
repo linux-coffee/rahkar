@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load jformat %}
+{% block title %} دوره های آموزشی فعال{% endblock %}
+{% block content %}
+<div class="row">
+    <div class="col-md-8">
+        <div class="row">
+            <div class="col-md-12"><p class="myfonttitle">لیست دوره های آموزشی مرکز</p></div></div>
+        {% for cours in courses %}
+        <div class="card mb-3" id="mycard">
+            <div class="row no-gutters">
+                <div class="col-md-2">
+                    <img src="{{ cours.image.url }}" class="img-thumbnail" alt="{{ cours.title }}">
+                </div>
+                <div class="col-md-10">
+                    <div class="card-body">
+                        <h5 class="myfonttitle">{{ cours.title }}</a></h5>
+                        <p class="card-text myfontdes">{{ cours.description|truncatechars:150 }}</p>
+                        <p class="card-text"><small class="myfontnumbers">{{ cours.created|jformat:"%Y/%m/%d" }}</small></p>
+                        <a class="myfonttitle" href="{% url 'startup:course_register' %}"><input type="submit" name="" id="" value="ثبت نام در دوره" class="btn btn-info"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="col-md-4">
+        <div class="row">
+            <div class="col-md-12"><p class="myfonttitle">مقالات آموزشی</p></div></div>
+        {% for article in all_article %}
+        <div class="card mb-3">
+            <div class="row no-gutters">
+                <div class="col-md-3">
+                    <a href="{{ article.get_absolute_url}}"><img src="{{ article.image.url }}" class="img-thumbnail" alt="..."></a>
+                </div>
+                <div class="col-md-9">
+                    <div class="card-body">
+                        <h5 class="card-title"><a class="myfonttitle" href="{{ article.get_absolute_url}}">{{ article.title }}</a></h5>
+                        <p class="card-text"><small class="myfontnumbers">{{ article.created|jformat:"%Y/%m/%d" }}</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+   
+</div>
+{% endblock %}

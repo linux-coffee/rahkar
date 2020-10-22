@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load jformat %}
+{% block title %} استارتاپ های فعال{% endblock %}
+{% block content %}
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="row">
+            <div class="col-md-12"><p class="myfonttitle">لیست استارتاپ های فعال مرکز</p></div></div>
+        {% for startup in all_startup %}
+        <div class="card mb-3">
+            <div class="row no-gutters">
+                <div class="col-md-2">
+                    <a href="#"><img src="{{ startup.image.url }}" class="img-thumbnail" alt="..."></a>
+                </div>
+                <div class="col-md-10" id="mycard">
+                    <div class="card-body">
+                        <h5 class="myfonttitle">{{ startup.title }}</a></h5>
+                        <p class="card-text myfontdes">{{ startup.description|truncatechars:150 }}</p>
+                        <p class="myfontnumbers">{{ startup.created| jformat:"%Y/%m/%d" }}</p>
+                        <a class="myfonttitle" href="{% url 'startup:startup_register' %}"><input type="submit" name=""
+                                id="" value="ثبت نام در استارتاپ" class="btn btn-info"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="col-md-4">
+        <div class="row">
+            <div class="col-md-12"><p class="myfonttitle">مقالات استارتاپی</p></div></div>
+        {% for article in all_article %}
+        <div class="card mb-3">
+            <div class="row no-gutters">
+                <div class="col-md-3">
+                    <a href="{{ article.get_absolute_url}}"><img src="{{ article.image.url }}" class="img-thumbnail" alt="..."></a>
+                </div>
+                <div class="col-md-9">
+                    <div class="card-body">
+                        <h5 class="card-title"><a class="myfonttitle" href="{{ article.get_absolute_url}}">{{ article.title }}</a></h5>
+                        <p class="card-text"><small class="myfontnumbers">{{ article.created|jformat:"%Y/%m/%d" }}</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

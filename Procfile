@@ -1,0 +1,1 @@
+web: gunicorn myrahkar.wsgi --log-file -

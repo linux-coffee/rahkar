@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.rtlcss.com/bootstrap/v4.2.1/css/bootstrap.min.css" integrity="sha384-vus3nQHTD+5mpDiZ4rkEPlnkcyTP+49BhJ4wJeJunw06ZAp+wzzeBPUXr42fi8If" crossorigin="anonymous">
+    <link rel="stylesheet"  href="{% static 'css/rtl/style.css' %}">   
+    <link rel="stylesheet"  href="{% static 'css/rtl/style2.css' %}">
+    <link rel="stylesheet"  href="{% static 'css/rtl/style3.css' %}">
+    <title>{% block title %}صفحه اصلی{% endblock %}</title>
+</head>
+<body>
+        <div dir="rtl">{% include 'inc/navbar.html' %}</div>
+        <div dir="rtl" class="jumbotron" style="background-image: url({% static '/img/header-back.jpg' %});">
+            <h1 class="myfonttitleheader">راهکار</h1>
+            <p class="myfonttitle">دفتر کارآفرینی مرکز علمی کاربردی جهاددانشگاهی کرمانشاه </p>
+        </div>
+        <div class="container" dir="rtl">
+            {% block content %} {% endblock %}
+        </div> 
+        <div dir="rtl">{% include 'inc/footer.html' %}</div>
+        <div dir="rtl">{% include 'inc/copyright.html' %}</div>
+        <button onclick="topFunction()" id="myBtn" title="Go to top">برو بالا</button> 
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+        <script src="{% static '/js/myjs.js' %}"></script>
+</body>
+</html>

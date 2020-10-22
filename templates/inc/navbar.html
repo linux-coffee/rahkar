@@ -1,0 +1,29 @@
+
+<nav class="navbar navbar-expand-lg navbar-light mynavbar">
+    <a class="navbar-brand" href="{% url 'blog:index' %}">راهکار</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'blog:index' %}">صفحه اصلی <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item" >
+          <a class="nav-link" href="{% url 'blog:all_news' %}">اخبار</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link " href="{% url 'startup:courses_index' %}">دوره ها</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="{% url 'startup:startup_index' %}">استارتاپ ها</a>
+      </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'blog:contact_us' %}">تماس با ما</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="{% url 'blog:about' %}">درباره ما</a>
+        </li>
+      </ul>
+    </div>
+</nav>

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load jformat %}
+{% block title %} {{ article.title }} {% endblock %}
+{% block content %}
+    <div class="row">
+      <div class="col-md-12">
+        <div class="jumbotron" style="background-color: white;">
+          <p class="myfonttitle">{{ article.title }}</p>
+          <p class="myfontnumbers">{{ article.created|jformat:"%Y/%m/%d" }}</p>
+          <div><img class="img-thumbnail" src="{{ article.image.url }}" alt="{{ article.title }}"></div>
+          <p>{{ article.text| safe }}</p>
+        </div>
+      </div>
+    </div>
+{% endblock %}

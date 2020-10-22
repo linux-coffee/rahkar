@@ -1,0 +1,43 @@
+<div class="jumbotron myfooter">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="row">
+                <p class="myfootertitle">نوشته های تازه</p>
+            </div>
+            <hr  class="hrfooter">
+            <div class="row">
+                <ul>
+                    {% for news in all_news %}
+                    <li><a class="footerfont" href="{{ news.get_absolute_url }}">{{ news.title }}</a></li>
+                    {% endfor %}
+                  </ul> 
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="row">
+                <p class="myfootertitle">آخرین مقالات</p>
+            </div>
+            <hr  class="hrfooter">
+            <div class="row">
+                <ul>
+                    {% for article in all_article %}
+                    <li><a class="footerfont" href="{{ article.get_absolute_url }}">{{ article.title }}</a></li>
+                    {% endfor %}
+                  </ul> 
+            </div>           
+        </div>
+        <div class="col-md-4">
+            <div class="row">
+                <p class="myfootertitle">دوره های آموزشی فعال</p>
+            </div>
+            <hr  class="hrfooter">
+            <div class="row">
+                <ul>
+                    {% for course in all_course %}
+                    <li><a class="footerfont" href="{% url 'startup:courses_index' %}">{{ course.title }}</a></li>
+                    {% endfor %}
+                  </ul> 
+            </div>       
+        </div>
+    </div>
+</div>
