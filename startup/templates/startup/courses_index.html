@@ -15,7 +15,7 @@
                 <div class="col-md-10">
                     <div class="card-body">
                         <h5 class="myfonttitle">{{ cours.title }}</a></h5>
-                        <p class="card-text myfontdes">{{ cours.description|truncatechars:150 }}</p>
+                        <p class="card-text myfontdes">{{ cours.description|truncatechars:350 }}</p>
                         <p class="card-text"><small class="myfontnumbers">{{ cours.created|jformat:"%Y/%m/%d" }}</small></p>
                         <a class="myfonttitle" href="{% url 'startup:course_register' %}"><input type="submit" name="" id="" value="ثبت نام در دوره" class="btn btn-info"></a>
                     </div>
@@ -26,7 +26,8 @@
     </div>
     <div class="col-md-4">
         <div class="row">
-            <div class="col-md-12"><p class="myfonttitle">مقالات آموزشی</p></div></div>
+            <div class="col-md-8"><p class="myfonttitle">مقالات آموزشی</p></div>
+            <div class="col-md-4"><a href="{% url 'startup:all_article' %}" class="myfontdes">آرشیو مقالات</a></div></div>
         {% for article in all_article %}
         <div class="card mb-3">
             <div class="row no-gutters">
@@ -43,6 +44,5 @@
         </div>
         {% endfor %}
     </div>
-   
 </div>
 {% endblock %}

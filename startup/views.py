@@ -7,9 +7,10 @@ from blog.models import News
 def courses_index(request):
     courses = Courses.objects.filter(published = True)
     all_news = News.objects.filter(published = True)
-    all_article = Article.objects.filter(subject='c')[:5]
+    all_article = Article.objects.filter(published = True)[:5]
+    articles = Article.objects.filter(subject='c')[:5]
     all_course = Courses.objects.filter(published=True)
-    return render(request,'startup/courses_index.html',{'courses' : courses,'all_news':all_news,'all_article':all_article,'all_course':all_course})
+    return render(request,'startup/courses_index.html',{'courses' : courses,'all_news':all_news,'all_article':all_article,'all_course':all_course,'articles':articles})
 
 def course_register(request):
     all_article = Article.objects.filter(published=True)[:4]
@@ -29,13 +30,15 @@ def startup_index(request):
     all_startup = Startup.objects.filter(published = True)
     all_course = Courses.objects.filter(published=True)
     all_news = News.objects.filter(published = True)
-    all_article = Article.objects.filter(subject='s')[:5]
-    return render(request,'startup/startup_index.html',{'all_startup' : all_startup,'all_news':all_news,'all_article':all_article,'all_course':all_course})
+    all_article = Article.objects.filter(published=True)[:5]
+    articles = Article.objects.filter(subject='s')[:5]
+
+    return render(request,'startup/startup_index.html',{'all_startup' : all_startup,'all_news':all_news,'all_article':all_article,'all_course':all_course,'articles':articles})
 
 def startup_register(request):
     all_news = News.objects.filter(published = True)
     all_course = Courses.objects.filter(published=True)
-    all_article = Article.objects.filter(subject='s')[:5]
+    all_article = Article.objects.filter(published=True)[:5]
     if request.method == 'POST':
         form = StartupRegisterForm(request.POST)
         if form.is_valid():
@@ -52,3 +55,9 @@ def article_detail(request,slug):
     all_news = News.objects.filter(published = True)
     all_article = Article.objects.filter(subject='s')[:5]
     return render(request,'startup/article_detail.html',{'article':article,'all_news':all_news,'all_article':all_article,'all_course':all_course})
+
+def all_article(request):
+    all_news = News.objects.filter(published=True)
+    all_article = Article.objects.filter(published=True)[:4]
+    all_course = Courses.objects.filter(published=True)
+    return render(request,'startup/all_article.html',{'all_news':all_news,'all_article' : all_article,'all_course':all_course})

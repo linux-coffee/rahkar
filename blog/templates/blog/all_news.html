@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load jformat %}
 {% block title %} آرشیو اخبار {% endblock %}
 {% block content %}
 <div class="row">
@@ -13,7 +14,7 @@
                     <div class="card-body">
                       <h5 class="card-title"><a  class="myfonttitle" href="{{ news.get_absolute_url }}">{{ news.title }}</a></h5>
                       <p class="card-text myfontdes">{{ news.description|truncatechars:150 }}</p>
-                      <p class="card-text"><small class="myfontnumbers">{{ news.created|date:"d F Y" }}</small></p>
+                      <p class="card-text"><small class="myfontnumbers">{{ news.created|jformat:"%Y/%m/%d" }}</small></p>
                     </div>
                   </div>
                 </div>
